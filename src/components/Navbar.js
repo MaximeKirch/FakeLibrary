@@ -16,14 +16,21 @@ export default function Navbar() {
     <Router>
     <div style={{width : "100%"}} >
         <nav className='navBar'>
-            <ul>
+        <div>
+        <h2 id="FakeLib">FAKELIB</h2>
+        </div>
+        <div className="navbarMenu">
+            <ul style={{display: 'flex', alignItems:"center", flexDirection:"row"}}>
                 <li>
-                    <Link to='/'>Accueil</Link>
+                    <Link id="navHome" to='/'>Accueil</Link>
                 </li>
-                <li>
-                    <Link to='/create'>Déposer un livre</Link>
+                <li >
+                    <Link to='/create'>
+                    <button id='addBook' >Ajouter un livre</button>
+                    </Link>
                 </li>
             </ul>
+            </div>
 
         </nav>
             <Routes>

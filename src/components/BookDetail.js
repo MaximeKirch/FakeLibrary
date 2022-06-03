@@ -20,7 +20,7 @@ export default function BookDetail() {
 
     const updateInfos = () => {
 
-        if(bookTitle || bookGender || bookAuthor) {
+        if(!bookTitle || !bookGender || !bookAuthor) {
         axios
             .patch(`/books/${params.id}`,  {title: bookTitle, author: bookAuthor, gender: bookGender, picture: bookPicture})
             .then((response) => { if(response.status===200) alert('Vos modifications ont bien été enregistrées'); console.log(response)})
@@ -34,33 +34,32 @@ export default function BookDetail() {
   return (
     <div className='main'>
     { bookDetail !== undefined && 
-    <>
+    <div className="editContainer">
     <div className='detailInfo'>
-    <div>
-        <img style={{height: "200px", width: "150px"}} src={bookDetail.picture !== undefined ? bookDetail.picture : bookPicture} alt='Book' />
-    </div>
+        <img style={{height: "200px", width: "150px", marginBottom:"10px"}} src={bookDetail.picture !== undefined ? bookDetail.picture : bookPicture} alt='Book' />
         <h1>{bookDetail.title}</h1>
         <h3>{bookDetail.author}</h3>
         <h4>{bookDetail.gender}</h4>
     </div>
-        <div style={{display :" flex"}}>
-            <p> Des informations vous semblent erronnées ? Modifiez les ici !</p>
+    
+        <div style={{display :" flex", marginTop:"20px"}}>
+            <p style={{fontStyle:"italic"}}> Des informations vous semblent erronnées ? Modifiez les ici !</p>
         </div>
         
         <div className='editForm'>
-            <form style={{display: 'flex', flexDirection:'column', marginLeft:'20px', width: '600px'}}>
-                <label>Titre :</label>
-                <input type='text' value={bookTitle} onChange={(e) => setBookTitle(e.target.value)}/>
-                <label>Auteur : </label>
-                <input type='text' value={bookAuthor} onChange={(e) => setBookAuthor(e.target.value)} />
-                <label> Genre : </label>
-                <input type='text' value={bookGender} onChange={(e) => setBookGender(e.target.value)}/>
-                <label> Image :</label>
-                <input type='text' value={bookPicture} onChange={(e) => setBookPicture(e.target.value)} placeholder="Lien vers l'image"/> 
+            <form style={{display: 'flex', flexDirection:'column', width:'90%'}}>
+                <label className="editLabel">Titre </label>
+                <input className="inputEdit"type='text'  value={bookTitle !== undefined ? bookTitle : bookDetail.title} onChange={(e) => setBookTitle(e.target.value)}/>
+                <label className="editLabel">Auteur  </label>
+                <input className="inputEdit" type='text' value={bookAuthor !== undefined ? bookAuthor : bookDetail.author} onChange={(e) => setBookAuthor(e.target.value)} />
+                <label className="editLabel"> Genre  </label>
+                <input className="inputEdit" type='text' value={bookGender !== undefined ? bookGender : bookDetail.gender} onChange={(e) => setBookGender(e.target.value)}/>
+                <label className="editLabel"> Image </label>
+                <input className="inputEdit" type='text' value={bookPicture !== undefined ? bookPicture : bookDetail.picture} onChange={(e) => setBookPicture(e.target.value)} placeholder="Lien vers l'image"/> 
             </form>
-            <button style={{width: "200px", height: "50px", backgroundColor:'peachpuff', color:"white", marginTop: "20px"}} onClick={() => updateInfos()}>Envoyer les modifications</button>
+            <button className="sendModifBtn"  onClick={() => updateInfos()}>Envoyer les modifications</button>
         </div>
-        </>
+        </div>
     }
     </div>
   )

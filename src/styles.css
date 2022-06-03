@@ -1,11 +1,13 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #FDFBF6;
 }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Helvetica';
 }
 
 h2, h3, h4, h5, h6 {
@@ -26,16 +28,23 @@ ul, li {
     width: auto;
     height: auto;
     justify-content: center;
-    
+}
 
+#FakeLib {
+    margin-left: 10px;
+    color: rgba(51,51,51,0.9);
 }
 
 .navBar {
-    width: auto;
+    width: 90%;
     height: 50px;
-    background-color: rgba(51,51,51,0.8);
     position: top;
     display: flex;
+    margin-left:5%;
+    justify-content: space-between;
+    justify-self: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(51,51,51,0.9);
 }
 
 .navBar   ul  {
@@ -52,13 +61,57 @@ ul, li {
     margin: 0 30px;
 }
 
+.navbarMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+#navHome {
+    color: rgb(51,51,51);
+}
+
+#addBook {
+    background-color: teal;
+    width: 130px;
+    height: 30px; 
+    border: 1px solid black;
+    color: white;
+}
+#addBook:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+#modifyBook {
+    background-color: teal;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+#modifyBook:hover {
+    cursor:pointer;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
 .main {
     margin-top: 50px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-self: center;
     width: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }
 
 .BookComponent {
@@ -69,9 +122,88 @@ ul, li {
 }
 .bookDesc {
 margin-left: 50px;
+margin-top:10px;
+}
+
+.bookGender {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.detailInfo {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-items: center;
+    align-content: center;
+}
+
+.editContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.inputEdit {
+    border: none;
+    border-bottom: 1px solid white;
+    margin : 20px 0px;
+    background-color: teal;
+    color: white;
+    font-size: 16px;
+}
+
+.editLabel {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sendModifBtn {
+    width: 200px;
+    height: 50px;
+    background-color: white; 
+    color: teal; 
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.sendModifBtn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }
 
 .createForm {
     display: flex;
     flex-direction: column;
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: teal;
+    border-radius: 25px;
+    height: 400px;
+    width:500px;
+    padding: 5px;
+}
+
+.bookPreview {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.bookPreviewDesc {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-left: 30px;
 }
